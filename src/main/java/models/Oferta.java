@@ -24,7 +24,7 @@ public class Oferta {
     private Date fecha;
     @NotNull
     private String mensaje;
-    @ManyToOne(optional = false)
+    @ManyToOne(optional = true)
     @JoinColumn(name="usuario_id", referencedColumnName = "id")
     private Usuario usuario;
     @ManyToOne(optional = false)

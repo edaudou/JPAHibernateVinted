@@ -33,5 +33,4 @@ public class Usuario {
     @OneToMany(mappedBy = "usuario")
     private List<Contraoferta>contraofertas;
 
-
 }

@@ -33,11 +33,10 @@ public class Producto {
     @NotNull
     private double precio;
 
-    @OneToOne(optional = false)
-    @JoinColumn(name = "pedido_id", referencedColumnName = "id")
+    @OneToOne(mappedBy = "producto",optional = true)
     private Pedido pedido;
 
-    @ManyToOne(optional = false)
+    @ManyToOne(optional = true)
     @JoinColumn(name = "id_usuario", referencedColumnName = "id")
     private Usuario usuario;
 

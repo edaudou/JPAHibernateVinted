@@ -17,7 +17,8 @@ public class Contraoferta {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable= true)
     private Integer id_contraoferta;
-
+    @NotNull
+    private double precioContraOferta;
     @NotNull
     private Date fecha_oferta;
     @NotNull
@@ -25,7 +26,7 @@ public class Contraoferta {
     @ManyToOne(optional = false)
     @JoinColumn(name = "oferta_id",referencedColumnName = "id")
     private Oferta oferta;
-    @ManyToOne(optional = false)
+    @ManyToOne(optional = true)
     @JoinColumn(name = "usuario_id",referencedColumnName = "id")
     private Usuario usuario;
 

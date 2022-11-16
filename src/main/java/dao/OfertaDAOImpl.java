@@ -6,6 +6,7 @@ public class OfertaDAOImpl extends Dao<Oferta,Integer> {
 
     @Override
     public Oferta find(Integer id) {
-        return null;
+        Oferta oferta= (Oferta) em.find(Oferta.class,id);
+        return oferta;
     }
 }

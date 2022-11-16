@@ -18,6 +18,7 @@ public class Pedido {
     private Integer id_pedido;
     @NotNull
     private String nseguimiento;
-    @OneToOne(mappedBy = "pedido")
+    @OneToOne()
+    @JoinColumn(name = "producto_id", referencedColumnName = "id")
     private Producto producto;
 }
