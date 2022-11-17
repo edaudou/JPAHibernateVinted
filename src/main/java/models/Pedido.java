@@ -1,14 +1,13 @@
 package models;
 
 import com.sun.istack.NotNull;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.*;
 
 @Entity
-@Data
+@Getter
+@Setter
 @AllArgsConstructor
 @NoArgsConstructor
 public class Pedido {
@@ -18,6 +17,15 @@ public class Pedido {
     private Integer id_pedido;
     @NotNull
     private String nseguimiento;
+
+    @Override
+    public String toString() {
+        return "Pedido{" +
+                "id_pedido=" + id_pedido +
+                ", nseguimiento='" + nseguimiento + '\'' +
+                '}';
+    }
+
     @OneToOne()
     @JoinColumn(name = "producto_id", referencedColumnName = "id")
     private Producto producto;

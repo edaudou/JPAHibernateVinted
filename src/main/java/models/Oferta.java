@@ -2,15 +2,14 @@ package models;
 
 import com.sun.istack.NotNull;
 import com.sun.istack.Nullable;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.*;
 import java.util.Date;
 
 @Entity
-@Data
+@Setter
+@Getter
 @AllArgsConstructor
 @NoArgsConstructor
 public class Oferta {
@@ -27,6 +26,17 @@ public class Oferta {
     @ManyToOne(optional = true)
     @JoinColumn(name="usuario_id", referencedColumnName = "id")
     private Usuario usuario;
+
+    @Override
+    public String toString() {
+        return "Oferta{" +
+                "id_oferta=" + id_oferta +
+                ", precio_oferta=" + precio_oferta +
+                ", fecha=" + fecha +
+                ", mensaje='" + mensaje + '\'' +
+                '}';
+    }
+
     @ManyToOne(optional = false)
     @JoinColumn(name = "producto_id", referencedColumnName = "id")
     private Producto producto;

@@ -1,15 +1,14 @@
 package models;
 
 import com.sun.istack.NotNull;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.*;
 import java.util.Date;
 
 @Entity
-@Data
+@Getter
+@Setter
 @AllArgsConstructor
 @NoArgsConstructor
 public class Contraoferta {
@@ -30,5 +29,13 @@ public class Contraoferta {
     @JoinColumn(name = "usuario_id",referencedColumnName = "id")
     private Usuario usuario;
 
-
+    @Override
+    public String toString() {
+        return "Contraoferta{" +
+                "id_contraoferta=" + id_contraoferta +
+                ", precioContraOferta=" + precioContraOferta +
+                ", fecha_oferta=" + fecha_oferta +
+                ", mensaje='" + mensaje + '\'' +
+                '}';
+    }
 }

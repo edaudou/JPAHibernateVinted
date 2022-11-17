@@ -2,15 +2,14 @@ package models;
 
 import com.sun.istack.NotNull;
 import com.sun.istack.Nullable;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.*;
 import java.util.List;
 
 @Entity
-@Data
+@Getter
+@Setter
 @AllArgsConstructor
 @NoArgsConstructor
 public class Usuario {
@@ -26,6 +25,18 @@ public class Usuario {
     private String localizacion;
     @NotNull
     private String contrasenia;
+
+    @Override
+    public String toString() {
+        return "Usuario{" +
+                "id_usuario=" + id_usuario +
+                ", nombre_completo='" + nombre_completo + '\'' +
+                ", valoracion=" + valoracion +
+                ", localizacion='" + localizacion + '\'' +
+                ", contrasenia='" + contrasenia + '\'' +
+                '}';
+    }
+
     @OneToMany (mappedBy = "usuario")
     private List<Producto> productoList;
     @OneToMany(mappedBy = "usuario")

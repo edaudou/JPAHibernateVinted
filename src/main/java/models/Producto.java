@@ -1,18 +1,16 @@
 package models;
 
 import com.sun.istack.NotNull;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.Generated;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.*;
 import java.util.List;
 
 @Entity
-@Data
 @AllArgsConstructor
 @NoArgsConstructor
+@Getter
+@Setter
 public class Producto {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -40,4 +38,17 @@ public class Producto {
     @JoinColumn(name = "id_usuario", referencedColumnName = "id")
     private Usuario usuario;
 
+    @Override
+    public String toString() {
+        return "Producto{" +
+                "id_producto=" + id_producto +
+                ", nombre='" + nombre + '\'' +
+                ", categoria='" + categoria + '\'' +
+                ", talla='" + talla + '\'' +
+                ", estado='" + estado + '\'' +
+                ", marca='" + marca + '\'' +
+                ", detalles='" + detalles + '\'' +
+                ", precio=" + precio +
+                '}';
+    }
 }
